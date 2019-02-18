@@ -203,7 +203,7 @@ def evaluate(hps):
     start_time = time.time()
     for _ in six.moves.range(FLAGS.eval_batch_count):
       (summaries, loss, predictions, truth, train_step) = sess.run(
-          [model.summaries, model.cost, model.predictions,
+          [model.summaries, model.cost, model.predictions, 
            model.labels, model.global_step])
 
       if not FLAGS.time_inference:
