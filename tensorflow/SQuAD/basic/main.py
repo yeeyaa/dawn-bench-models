@@ -155,6 +155,7 @@ def _test(config):
         num_steps = config.test_num_batches
 
     e = None
+    start_time = time.time()
     for multi_batch in tqdm(test_data.get_multi_batches(config.batch_size, config.num_gpus, num_steps=num_steps, cluster=config.cluster), total=num_steps):
         ei = evaluator.get_evaluation(sess, multi_batch)
         e = ei if e is None else e + ei
@@ -164,7 +165,8 @@ def _test(config):
                 os.mkdir(eval_subdir)
             path = os.path.join(eval_subdir, str(ei.idxs[0]).zfill(8))
             graph_handler.dump_eval(ei, path=path)
-
+    print("Total inferenced number of exmaples: %d" % test_data.num_examples)
+    print("Time for 1-example inference: %.4f (ms)" % (((time.time() - start_time)/test_data.num_examples)*1000))
     print(e)
     if config.dump_answer:
         print("dumping answer ...")
