@@ -19,6 +19,7 @@ flags.DEFINE_string("forward_name", "single", "Forward name [single]")
 flags.DEFINE_string("answer_dir", "", "Answer path []")
 flags.DEFINE_string("eval_path", "", "Eval path []")
 flags.DEFINE_string("load_dir", "", "Load path []")
+flags.DEFINE_string("load_path", "", "Load path []")
 flags.DEFINE_string("shared_path", "", "Shared path []")
 
 # Device placement
