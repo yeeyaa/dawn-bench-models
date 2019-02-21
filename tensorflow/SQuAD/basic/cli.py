@@ -114,6 +114,7 @@ flags.DEFINE_integer("char_vocab_size", 0, "char_vocab_size")
 flags.DEFINE_integer("word_emb_size", 0, "word_emb_size")
 flags.DEFINE_integer("word_vocab_size", 0, "word_vocab_size")
 flags.DEFINE_integer("emb_mat", 0, "embedding matrix")
+flags.DEFINE_integer("new_emb_mat", 0, "embedding matrix")
 
 
 def main(_):
